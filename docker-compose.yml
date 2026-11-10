@@ -1,0 +1,7 @@
+services:
+  deepshield:
+    build: .
+    ports:
+      - "8765:8765"
+    volumes:
+      - ./deep_shield_data:/app/data

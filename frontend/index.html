@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DeepShield AI — Deepfake Detection</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Background Decorative Elements -->
+    <div class="bg-grid"></div>
+    <div class="scan-lines"></div>
+    <div class="glow g1"></div>
+    <div class="glow g2"></div>
+    <div class="ambient ambient-a"></div>
+    <div class="ambient ambient-b"></div>
+    <div class="particle-field" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+
+    <!-- Navigation Header -->
+    <header class="nav">
+        <div class="brand">
+            <div class="brand-mark">DF</div>
+            <span>DeepFake <b>AI</b></span>
+        </div>
+        <nav>
+            <a href="#detector">Detector</a>
+            <a href="#how">How it works</a>
+            <a href="#about">About</a>
+        </nav>
+        <div class="nav-actions">
+            <button id="historyBtn" class="ghost">History</button>
+            <button id="openLogin" class="login-pill">Sign in</button>
+            <button id="logoutBtn" class="ghost hidden">Log out</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-copy">
+                <div class="eyebrow"><span class="pulse"></span> AI FORENSIC MEDIA SCREENING</div>
+                <h1>See beyond the <span>synthetic.</span></h1>
+                <p>Analyze images and videos for visible deepfake signals with a polished, research-ready forensic workflow.</p>
+                <div class="hero-cta">
+                    <button class="primary" id="heroScan">Start a scan <span>→</span></button>
+                    <span class="secure">No credit card required</span>
+                </div>
+                <div class="mini-stats">
+                    <div><b>IMAGE + VIDEO</b><small>Media analysis</small></div>
+                    <div><b>FRAME SCAN</b><small>Temporal sampling</small></div>
+                    <div><b>AI READY</b><small>Model-ready backend</small></div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="orbital">
+                    <div class="orbit o1"></div>
+                    <div class="orbit o2"></div>
+                    <div class="core">
+                        <div class="core-inner">DF</div>
+                    </div>
+                    <div class="dot d1"></div>
+                    <div class="dot d2"></div>
+                    <div class="dot d3"></div>
+                </div>
+                <div class="float-card fc1"><span>●</span> LIVE ENGINE <b>READY</b></div>
+                <div class="float-card fc2"><span>↗</span> FORENSIC SCORE <b>LOW RISK</b></div>
+            </div>
+        </section>
+
+        <!-- Detector Section -->
+        <section id="detector" class="detector">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow">DETECTOR</div>
+                    <h2>Upload media. <span>Get a signal.</span></h2>
+                </div>
+                <div class="mode-tabs">
+                    <button class="active" data-mode="image">IMAGE</button>
+                    <button data-mode="video">VIDEO</button>
+                </div>
+            </div>
+            <div class="workspace">
+                <div id="dropzone" class="dropzone">
+                    <div class="drop-ripple"></div>
+                    <div class="scanner-beam"></div>
+                    <div id="previewWrap" class="preview-wrap hidden">
+                        <img id="imagePreview" alt="Selected media preview">
+                        <div id="previewBadge">READY</div>
+                    </div>
+                    <input type="file" id="fileInput" accept="image/*,video/*" hidden>
+                    <div class="upload-icon"><span>↑</span></div>
+                    <h3>Drop your file here</h3>
+                    <p>or click to browse · PNG, JPG, WEBP, MP4, MOV</p>
+                    <button class="browse" id="browseBtn">Choose media</button>
+                    <div id="fileMeta" class="file-meta hidden"></div>
+                </div>
+                <div class="scan-panel">
+                    <div class="scan-header">
+                        <span>ANALYSIS PIPELINE</span>
+                        <b id="pipelineStatus">IDLE</b>
+                    </div>
+                    <div class="steps">
+                        <div class="step" data-step="0"><i>01</i><span>Validate media</span><em>WAITING</em></div>
+                        <div class="step" data-step="1"><i>02</i><span>Extract frames</span><em>WAITING</em></div>
+                        <div class="step" data-step="2"><i>03</i><span>Locate face regions</span><em>WAITING</em></div>
+                        <div class="step" data-step="3"><i>04</i><span>Run AI inference</span><em>WAITING</em></div>
+                        <div class="step" data-step="4"><i>05</i><span>Build verdict</span><em>WAITING</em></div>
+                    </div>
+                    <button id="analyzeBtn" class="analyze" disabled>Analyze media <span>↗</span></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section id="how" class="how">
+            <div class="section-head">
+                <div>
+                    <div class="eyebrow">WORKFLOW</div>
+                    <h2>From upload to <span>verdict.</span></h2>
+                </div>
+            </div>
+            <div class="cards">
+                <article>
+                    <div class="num">01</div>
+                    <h3>Validate</h3>
+                    <p>Checks file type, size, readability and media metadata before analysis.</p>
+                </article>
+                <article>
+                    <div class="num">02</div>
+                    <h3>Inspect</h3>
+                    <p>Samples frames and searches for face regions using a vision pipeline.</p>
+                </article>
+                <article>
+                    <div class="num">03</div>
+                    <h3>Explain</h3>
+                    <p>Returns a confidence signal, forensic note, frame count and engine status.</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div>
+                <div class="eyebrow">PROJECT</div>
+                <h2>Built for a deepfake detection research workflow.</h2>
+                <p>DeepFake is structured so the interface can later connect to a validated PyTorch checkpoint without rebuilding the product experience.</p>
+            </div>
+            <div class="about-panel">
+                <div><b>BASELINE ENGINE</b><span>Active</span></div>
+                <div><b>API</b><span>FastAPI</span></div>
+                <div><b>STORAGE</b><span>SQLite</span></div>
+                <div><b>MEDIA</b><span>Image + Video</span></div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>DeepFake AI <span>·</span> AI/ML Face-Swap Deepfake Video Detection</footer>
+
+    <!-- Login/Auth Modal Overlay -->
+    <div id="loginOverlay" class="overlay hidden">
+        <div class="login-shell">
+            <button class="close" id="closeLogin">×</button>
+            <div class="login-info">
+                <div class="welcome">Welcome to<br><span>DeepFake</span></div>
+                <div class="benefit">
+                    <div class="benefit-icon">▥</div>
+                    <div><b>Detailed Analysis</b><p>Unlock heatmaps and detailed analysis for image detections</p></div>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">♢</div>
+                    <div><b>25 Free Results Per Month</b><p>Get started immediately — no credit card required</p></div>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">⊞</div>
+                    <div><b>Full Detection History</b><p>Access your detection history, results and reports</p></div>
+                </div>
+                <div class="trusted">♧ <span>Research-ready forensic workspace</span></div>
+            </div>
+            <div class="login-card">
+                <div class="free-pill"><span class="free-spark">✦</span> <span>25 free results</span><i></i></div>
+                <div class="login-orbit" aria-hidden="true"><span></span><span></span><span></span></div>
+                <button id="googleBtn" class="google"><span class="g">G</span> Sign in with Google</button>
+                <div class="or"><span></span>or<span></span></div>
+                <form id="authForm">
+                    <label>Email address
+                        <input id="email" type="email" placeholder="Enter your email address" required>
+                    </label>
+                    <label>Password
+                        <input id="password" type="password" placeholder="Enter your password" required minlength="6">
+                    </label>
+                    <button class="signin" type="submit" id="signinBtn">Sign in</button>
+                    <label class="check">
+                        <input id="terms" type="checkbox" required>
+                        <span>I agree to the <u>Privacy Policy</u> and <u>Terms of Service</u></span>
+                    </label>
+                </form>
+                <div class="auth-switch">New here? <button id="registerMode">Create an account</button></div>
+                <div id="authMsg" class="auth-msg"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Analysis Result Modal -->
+    <div id="resultModal" class="modal hidden">
+        <div class="result-card">
+            <button class="close" id="closeResult">×</button>
+            <div class="eyebrow">ANALYSIS COMPLETE</div>
+            <div id="resultVerdict" class="result-verdict">Likely authentic</div>
+            <div class="score"><strong id="resultScore">46%</strong><span>confidence signal</span></div>
+            <div class="result-grid">
+                <div><small>MEDIA</small><b id="rMedia">Image</b></div>
+                <div><small>FRAMES</small><b id="rFrames">1</b></div>
+                <div><small>FACES</small><b id="rFaces">1</b></div>
+                <div><small>ENGINE</small><b id="rEngine">BASELINE VISION</b></div>
+            </div>
+            <p id="rNote" class="note"></p>
+            <button class="primary wide" id="resultDone">Done</button>
+        </div>
+    </div>
+
+    <!-- History Modal -->
+    <div id="historyModal" class="modal hidden">
+        <div class="history-card">
+            <button class="close" id="closeHistory">×</button>
+            <div class="eyebrow">YOUR HISTORY</div>
+            <h2>Recent scans</h2>
+            <div id="historyList" class="history-list"></div>
+        </div>
+    </div>
+
+    <!-- Script File -->
+    <script src="app.js"></script>
+</body>
+</html>
