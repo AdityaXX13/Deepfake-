@@ -1,3 +1,4 @@
+>>>>>>> cbf1f73 (Add Fly deployment configuration)
 @echo off
 title Deepfake Detection - Auto Startup
 
@@ -46,4 +47,5 @@ echo Frontend: http://localhost:5173
 echo.
 echo Do not close the Backend and Frontend windows.
 echo.
-pause
+
+>>>>>>> cbf1f73 (Add Fly deployment configuration)
